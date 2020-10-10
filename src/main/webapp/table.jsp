@@ -14,7 +14,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <table>
             <% // The tag signals to the parsing engine (jsp) on the server that the 
             // code between the less then and greater then signs is JSP
             AppController app = new AppController();
@@ -23,24 +22,14 @@
             List<Person> people = app.getPeople();
             for( Person person : people ) {
             %>
-            <tr>
-                <td>
-                    <%= person.getId() %>
-                </td>
-                <td>
-                    <%= person.getFirstName() %>
-                </td>
-                <td>                
-                    <%= person.getLastName() %>
-                </td>
-                <td>                
-                    <%= person.getEmail() %>    
-                </td>
-                <td>                
+            
+                    <%= person.getId() %>,                 
+                    <%= person.getFirstName() %>, 
+                    <%= person.getLastName() %>,                               
+                    <%= person.getEmail() %>, 
                     <%= person.getEmployeeNumber() %>
-                </td>
-            </tr>
+                       <br />
+                           
             <% } %>
-        </table>
     </body>
 </html>
