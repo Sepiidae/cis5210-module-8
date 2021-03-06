@@ -32,7 +32,7 @@ public class AppController {
     EntityManager em;
 
     public AppController() {
-        emf = Persistence.createEntityManagerFactory("edu.fit_Module8_war_1.0-SNAPSHOTPU");
+        emf = Persistence.createEntityManagerFactory("derbyUnit");
     }
 
     public Person getPerson(int id) {
