@@ -6,7 +6,7 @@ Before starting the "quiz" please setup your software to run in NetBeans. Once t
 
 # Summary
 
-* Download and install a decent version of JDK 8. 
+* Download and install working JDK 8. 
 * Download and install NetBeans
 * Download a generic ZIP/TAR.GZ version of Tomcat9
 * Extract Tomcat into your home directory
