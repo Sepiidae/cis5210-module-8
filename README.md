@@ -2,16 +2,30 @@
 
 Before starting the "quiz" please setup your software to run in NetBeans. Once things are up and running modify the code according to the questions in the quiz.
 
-# Setup to run the example code:
+# Setup to run the example code, this may need adjustment based on your compute. 
 
-#Java: 
+# Summary
+
+* Download and install a decent version of JDK 8. 
+* Download and install NetBeans
+* Download a generic ZIP/TAR.GZ version of Tomcat9
+* Extract Tomcat into your home directory
+* Open NetBeans and make sure it is using the JDK 8 you installed in the first step.
+* Add a Service -> Server with Tomcat Netbeans
+* Clone the Project using GIT into NetBeans
+* Run the project and it should start the index.html file
+
+
+# Detailed Steps to install the items mentioned in the summary
+
+## Java: 
 
 * Install Amazon's Java Install from https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html
 (if for some reason this isn't installed a newer version of the following code has been developed which works with the latest java.)
 
 * You will need to add this version to the Platforms listed in NetBean's it it isn't automatically added. https://netbeans.apache.org/kb/docs/java/javase-embedded.html 
 
-# Tomcat:
+## Tomcat:
 
 Download Apache Tomcat 9.x from https://tomcat.apache.org/download-90.cgi. 
 Extract this to your home directory. (Makes sure to download the correct core version for your computer with a ZIP or TAR GZ file, do not install anything Windows Specific).
@@ -21,7 +35,7 @@ In this file please add the line.
 
 export JAVA_HOME="PATHTOWHEREYOUINSTALLED JAVA"
 
-# NetBeans
+## NetBeans
 
 * Download and Install Netbeans from https://netbeans.org 
 * Start Netbeans
@@ -32,7 +46,7 @@ export JAVA_HOME="PATHTOWHEREYOUINSTALLED JAVA"
 * Select the directory where you extracted tomcat
 * Click Ok
 
-# Load the project from GitHub:
+## Load the project from GitHub:
 
 * Start NetBeans. 
 * Click Team
