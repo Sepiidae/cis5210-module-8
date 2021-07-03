@@ -1,3 +1,7 @@
+<%@page import="edu.fit.module8.entity.Person"%>
+<%@page import="java.util.List"%>
+<%@page import="edu.fit.module8.entity.AppController"%>
+
 <%-- 
     Document   : example
     Created on : Oct 8, 2020, 9:05:16 PM
@@ -49,6 +53,26 @@
             </form>
 
 
+        </div>
+        
+        <div>
+            <% // The tag signals to the parsing engine (jsp) on the server that the 
+            // code between the less then and greater then signs is JSP
+            AppController app = new AppController();
+            
+            // Store all the people
+            List<Person> people = app.getPeople();
+            for( Person person : people ) {
+            %>
+            
+                    <%= person.getId() %>,   
+                    <%= person.getFirstName() %>, 
+                    <%= person.getLastName() %>,                               
+                    <%= person.getEmail() %>, 
+                    <%= person.getEmployeeNumber() %>
+                       <br />
+                           
+            <% } %>
         </div>
     </body>
 </html>
