@@ -106,4 +106,69 @@ public class AppController {
 
         return person;
     }
+
+    /**
+     * Search for a record in the person table, returning a list of people
+     * 
+     * if a parameter is null it will not search on that parameter
+     * 
+     * @param email
+     * @param firstName
+     * @param lastName
+     * @param employeeNumber
+     * @return 
+     */
+    public List<Person> search(String email, String firstName, String lastName, String employeeNumber) {
+        em = emf.createEntityManager();
+
+        // Build a sql string to submit to the database 
+        StringBuilder sql = new StringBuilder();
+        // A 1=1 always returns true, so it will return all records
+        sql.append("select p from Person p where 1=1");
+
+        // Add a filter, % is the same as a wild card, we need to wrap our string 
+        // in "%" so it performs a wildcard lookup/search
+        if (email != null) {
+            email = "%" + email + "%";
+            sql.append(" and p.email like :email");
+        }
+
+        if (firstName != null) {
+            firstName = "%" + firstName + "%";
+            sql.append(" and p.firstName like :firstName");
+        }
+
+        if (lastName != null) {
+            lastName = "%" + lastName + "%";
+            sql.append(" and p.lastName like :lastName");
+        }
+        if (employeeNumber != null) {
+            employeeNumber = "%" + employeeNumber + "%";
+            sql.append(" and p.employeeNumber like :employeeNumber");
+        }
+        
+        // create a query object to submit our query, it expects a sql entry
+        Query q = em.createQuery(sql.toString());
+        
+        // Pass the user input via parameters to the query
+        if (email != null) {
+            q.setParameter("email", email);
+        }
+        if (firstName != null) {
+            q.setParameter("firstName", firstName);
+        }
+        if (lastName != null) {
+            q.setParameter("lastName", lastName);
+        }
+        if (employeeNumber != null) {
+            q.setParameter("employeeNumber", employeeNumber);
+        }
+
+        // Execute the query
+        List<Person> people = q.getResultList();
+        
+        // Return the results of the query
+        return people;
+
+    }
 }
